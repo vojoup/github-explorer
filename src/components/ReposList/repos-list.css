@@ -1,0 +1,19 @@
+#repos-list {
+  list-style-type: none;
+}
+
+h3 {
+  margin: 0;
+}
+
+.repo {
+  margin: .6rem;
+  border-bottom: 2px solid #111;
+  border-top: 2px solid #111;
+  background-color: rgb(132, 167, 233);
+  padding: .6rem;
+}
+
+.date{
+  font-weight: 300;
+}
