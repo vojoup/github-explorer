@@ -1,5 +1,7 @@
 #repos-list {
   list-style-type: none;
+  margin: 0 auto;
+  max-width: 70vw;
 }
 
 h3 {

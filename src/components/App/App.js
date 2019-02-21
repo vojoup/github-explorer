@@ -40,11 +40,11 @@ class App extends Component {
         {loading ? (
           <div>Loading...</div>
         ) : (
-            <>
-              <User />
-              <ReposeList />
-            </>
-          )}
+          <>
+            <User />
+            <ReposeList />
+          </>
+        )}
       </div>
     );
   }
