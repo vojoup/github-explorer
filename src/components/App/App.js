@@ -25,6 +25,7 @@ class App extends Component {
         <input
           type="text"
           name="username"
+          placeholder="Enter a GitHub username"
           ref={nameInputRef => (this.nameInputRef = nameInputRef)}
         />
         <button type="button" id="search" onClick={this.loadRepos}>
