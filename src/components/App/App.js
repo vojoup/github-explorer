@@ -10,7 +10,8 @@ class App extends Component {
     this.loadRepos = this.loadRepos.bind(this);
   }
 
-  loadRepos() {
+  loadRepos(e) {
+    e.preventDefault();
     const { getRepos } = this.props;
     const username = this.nameInputRef.value;
     if (username) {
@@ -20,20 +21,29 @@ class App extends Component {
   }
 
   render() {
+    const { loading } = this.props;
     return (
       <div className="App">
         <h1 className="italics">Repos Explorer</h1>
-        <input
-          type="text"
-          name="username"
-          placeholder="Enter a GitHub username"
-          ref={nameInputRef => (this.nameInputRef = nameInputRef)}
-        />
-        <button type="button" id="search" onClick={this.loadRepos}>
-          Search
-        </button>
-        <User />
-        <ReposeList />
+        <form onSubmit={this.loadRepos}>
+          <input
+            type="text"
+            name="username"
+            placeholder="Enter a GitHub username"
+            ref={nameInputRef => (this.nameInputRef = nameInputRef)}
+          />
+          <button type="submit" id="search" onClick={this.loadRepos}>
+            Search
+          </button>
+        </form>
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <>
+            <User />
+            <ReposeList />
+          </>
+        )}
       </div>
     );
   }

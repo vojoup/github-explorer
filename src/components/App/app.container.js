@@ -5,6 +5,7 @@ import App from './App';
 
 const mapStateToProps = state => ({
   repos: state.repos,
+  loading: state.loading,
 });
 
 const mapDispatchToProps = dispatch => ({
