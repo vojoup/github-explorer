@@ -1,2 +1,2 @@
 export const GET_REPOS = 'GET_REPOS';
-export const GET_REPO_BY_ID = 'GET_REPO_BY_ID';
+export const GET_USER_INFO = 'GET_USER_INFO';

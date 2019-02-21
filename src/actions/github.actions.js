@@ -1,9 +1,15 @@
-import { GET_REPOS, GET_REPO_BY_ID } from '../constants/github.constants';
+import { GET_REPOS, GET_USER_INFO } from '../constants/github.constants';
+
+export const getUserInfo = user => async dispatch => {
+  const response = await fetch(`https://api.github.com/users/${user}`);
+  const userInfo = await response.json();
+  dispatch({ type: GET_USER_INFO, user: userInfo });
+};
 
 export const getAllReposForUser = user => async dispatch => {
+  dispatch(getUserInfo(user));
   const response = await fetch(`https://api.github.com/users/${user}/repos`);
   const repos = await response.json();
-  console.log(repos);
   dispatch({ type: GET_REPOS, repos });
 };
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import ReposeList from '../ReposList/repos-list.container';
+import User from '../User/user.container';
 
 class App extends Component {
   constructor(props) {
@@ -31,6 +32,7 @@ class App extends Component {
         <button type="button" id="search" onClick={this.loadRepos}>
           Search
         </button>
+        <User />
         <ReposeList />
       </div>
     );

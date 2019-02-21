@@ -1,8 +1,8 @@
-import { GET_REPO_BY_ID, GET_REPOS } from '../constants/github.constants';
+import { GET_REPOS, GET_USER_INFO } from '../constants/github.constants';
 
 const defaultState = {
   repos: [],
-  selectedRepo: null,
+  user: null,
 };
 
 export default function githubReducer(state = defaultState, action) {
@@ -10,6 +10,8 @@ export default function githubReducer(state = defaultState, action) {
     case GET_REPOS: {
       return { ...state, repos: [...action.repos] };
     }
+    case GET_USER_INFO:
+      return { ...state, user: { ...action.user } };
     default:
       return { ...state };
   }
