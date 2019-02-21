@@ -15,6 +15,7 @@ class App extends Component {
     const { getRepos } = this.props;
     const username = this.nameInputRef.value;
     if (username) {
+      document.title = `${username} repos`;
       getRepos(username);
     }
     this.nameInputRef.value = '';
@@ -39,11 +40,11 @@ class App extends Component {
         {loading ? (
           <div>Loading...</div>
         ) : (
-          <>
-            <User />
-            <ReposeList />
-          </>
-        )}
+            <>
+              <User />
+              <ReposeList />
+            </>
+          )}
       </div>
     );
   }
