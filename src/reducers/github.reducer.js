@@ -16,7 +16,11 @@ export default function githubReducer(state = defaultState, action) {
       return { ...state, repos: [...action.repos], loading: action.loading };
     }
     case GET_USER_INFO:
-      return { ...state, user: { ...action.user }, loading: action.loading };
+      return {
+        ...state,
+        user: { ...action.user },
+        loading: action.loading,
+      };
     case LOADING_START:
       return { ...state, loading: true };
     default:

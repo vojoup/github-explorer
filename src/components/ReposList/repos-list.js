@@ -10,7 +10,6 @@ export default class ReposeList extends Component {
 
   renderReposList() {
     const { repos } = this.props;
-    console.log(repos);
     return repos.map(
       ({ id, name, description, created_at: createdAt, html_url: htmlUrl }) => (
         <li key={id} className="repo">
@@ -25,8 +24,6 @@ export default class ReposeList extends Component {
   }
 
   render() {
-    const { repos } = this.props;
-    console.log(repos);
     return <ul id="repos-list">{this.renderReposList()}</ul>;
   }
 }
