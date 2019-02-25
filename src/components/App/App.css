@@ -9,7 +9,7 @@ h1 {
 input {
   border: 1px #111 solid;
   border-radius: 10px;
-  margin: 1rem;
+  margin-bottom: 1rem;
   padding: .6rem;
   width: 20vw;
 }

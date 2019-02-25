@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Transition } from 'react-spring/renderprops';
 
 import './repos-list.css';
 
@@ -10,16 +11,27 @@ export default class ReposeList extends Component {
 
   renderReposList() {
     const { repos } = this.props;
-    return repos.map(
-      ({ id, name, description, created_at: createdAt, html_url: htmlUrl }) => (
-        <li key={id} className="repo">
-          <h3>
-            {name} - <span className="date">{createdAt.substring(0, 10)}</span>
-          </h3>
-          <p>{description}</p>
-          <a href={htmlUrl}>See repo</a>
-        </li>
-      )
+    return (
+      <Transition
+        items={repos}
+        keys={repo => repo.id}
+        from={{ opacity: 0 }}
+        enter={{ opacity: 1 }}
+        leave={{ opacity: 0 }}
+        unique
+        trail={200}
+      >
+        {repo => ({ opacity, transform }) => (
+          <li style={{ opacity, transform }} key={repo.id} className="repo">
+            <h3>
+              {repo.name} -{' '}
+              <span className="date">{repo.created_at.substring(0, 10)}</span>
+            </h3>
+            <p>{repo.description}</p>
+            <a href={repo.html_url}>See repo</a>
+          </li>
+        )}
+      </Transition>
     );
   }
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Spring } from 'react-spring/renderprops';
 
 import './user.css';
 
@@ -12,7 +13,17 @@ export default class User extends Component {
           <>
             <h2>Showing {user.name}'s repos</h2>
             <span>
-              <img src={user.avatar_url} alt={user.name} />
+              <Spring
+                from={{
+                  opacity: 0,
+                  transform: 'scale(0) translate3d(0,-40px,0)',
+                }}
+                to={{ opacity: 1, transform: 'scale(1) translate3d(0,0px,0)' }}
+              >
+                {props => (
+                  <img style={props} src={user.avatar_url} alt={user.name} />
+                )}
+              </Spring>
             </span>
           </>
         )}
