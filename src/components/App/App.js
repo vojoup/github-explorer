@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Spring } from 'react-spring/renderprops';
+import PropTypes from 'prop-types';
 
 import './App.css';
 import ReposeList from '../ReposList/repos-list.container';
@@ -86,3 +87,7 @@ class App extends Component {
 }
 
 export default App;
+
+App.propTypes = {
+  loading: PropTypes.bool.isRequired,
+};

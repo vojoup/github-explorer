@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Spring } from 'react-spring/renderprops';
+import PropTypes from 'prop-types';
 
 import './user.css';
 
@@ -31,3 +32,8 @@ export default class User extends Component {
     );
   }
 }
+
+User.propTypes = {
+  user: PropTypes.object.isRequired,
+  message: PropTypes.string,
+};

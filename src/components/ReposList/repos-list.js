@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Transition } from 'react-spring/renderprops';
+import PropTypes from 'prop-types';
 
 import './repos-list.css';
 
@@ -19,7 +20,7 @@ export default class ReposeList extends Component {
         enter={{ opacity: 1 }}
         leave={{ opacity: 0 }}
         unique
-        trail={200}
+        trail={100}
       >
         {repo => ({ opacity, transform }) => (
           <li style={{ opacity, transform }} key={repo.id} className="repo">
@@ -39,3 +40,7 @@ export default class ReposeList extends Component {
     return <ul id="repos-list">{this.renderReposList()}</ul>;
   }
 }
+
+ReposeList.propTypes = {
+  repos: PropTypes.object.isRequired,
+};
